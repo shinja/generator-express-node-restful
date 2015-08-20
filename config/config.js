@@ -36,7 +36,7 @@ var config = {
             name: "server" 
         },
         port: 3000,
-        db: "mongodb://app_1068:app_1068@localhost/server-evennode"
+        db: "mongodb://app_1068:app_1068@evennode.com/server-evennode"
     }
 };
 
