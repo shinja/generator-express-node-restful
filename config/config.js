@@ -1,34 +1,43 @@
-var path = require('path'),
-    rootPath = path.normalize(__dirname + '/..'),
-    env = process.env.NODE_ENV || 'development';
+var path = require( "path" ),
+rootPath = path.normalize( __dirname + "/.." ),
+env = process.env.NODE_ENV || "development";
 
 var config = {
-  development: {
-    root: rootPath,
-    app: {
-      name: 'server'
+    development: {
+        root: rootPath,
+        app: {
+            name: "server"
+        },
+        port: 3000,
+        db: "mongodb://localhost/server-development"
     },
-    port: 3000,
-    db: 'mongodb://localhost/server-development'
-  },
 
-  test: {
-    root: rootPath,
-    app: {
-      name: 'server'
+    test: {
+        root: rootPath,
+        app: {
+            name: "server"
+        },
+        port: 3000,
+        db: "mongodb://localhost/server-test"
     },
-    port: 3000,
-    db: 'mongodb://localhost/server-test'
-  },
 
-  production: {
-    root: rootPath,
-    app: {
-      name: 'server'
+    production: {
+        root: rootPath,
+        app: {
+            name: "server"
+        },
+        port: 3000,
+        db: "mongodb://localhost/server-production"
     },
-    port: 3000,
-    db: 'mongodb://localhost/server-production'
-  }
+
+    evennode: {
+        root: rootPath,
+        app: {
+            name: "server" 
+        },
+        port: 3000,
+        db: "mongodb://app_1068:app_1068@localhost/server-evennode"
+    }
 };
 
 module.exports = config[env];
