@@ -28,16 +28,15 @@ var config = {
         },
         port: 3000,
         db: "mongodb://localhost/server-production"
-    },
-
-    evennode: {
-        root: rootPath,
-        app: {
-            name: "server" 
-        },
-        port: 3000,
-        db: "mongodb://app_1068:app_1068@evennode.com/server-evennode"
     }
 };
+
+
+if (process.env.APP_CONFIG) {
+
+    var db = JSON.parse(process.env.APP_CONFIG);
+    config[env].db = "mongodb://" + db.mongo.user + ":app_1068@" + 
+                    db.mongo.host + ":" + db.mongo.port + "/" + db.mongo.db;
+}
 
 module.exports = config[env];
